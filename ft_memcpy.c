@@ -6,22 +6,24 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:05:17 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 21:09:56 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 15:08:45 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dst, const void *src, int n)
-{
-	int				i;
-	unsigned char	dest;
-	unsigned char	uc_src;
+#include "libft.h"
 
-	dest = (unsigned char *)dst;
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*uc_dst;
+	unsigned char	*uc_src;
+
+	uc_dst = (unsigned char *)dst;
 	uc_src = (unsigned char *)src;
 	i = 0;
-	while (i < n)
+	while (i < n && uc_dst && uc_src)
 	{
-		dest[i] = uc_src[i];
+		uc_dst[i] = uc_src[i];
 		i++;
 	}
 	return (dst);

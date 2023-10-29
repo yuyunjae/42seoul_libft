@@ -6,13 +6,15 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:43:11 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 17:45:12 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 14:42:39 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_strlen(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != 0)

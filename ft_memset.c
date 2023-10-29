@@ -6,13 +6,15 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:47:09 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 21:21:40 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 14:46:33 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, int len)
+#include "libft.h"
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*s;
 
 	s = (unsigned char *)b;

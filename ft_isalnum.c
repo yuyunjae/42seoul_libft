@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:40:59 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 17:55:35 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 14:35:34 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isalnum(int c)
 {
-	if (isalpha(c) || isdigit(c))
-		return (c);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
 	return (0);
 }

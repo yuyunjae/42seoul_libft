@@ -6,20 +6,22 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:58:36 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 21:09:11 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 14:52:38 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	int				i;
-	unsigned char	us;
+	size_t			i;
+	unsigned char	*us;
 
 	us = (unsigned char *)s;
 	i = 0;
-	while (n-- > 0)
+	while (i < n)
 	{
-		us[i] = '0';
+		us[i] = 0;
 		i++;
 	}
 }
