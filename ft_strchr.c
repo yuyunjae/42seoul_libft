@@ -6,19 +6,20 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:38:22 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 20:49:42 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 17:54:26 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (s)
+	c = c % 256;
+	while (*s)
 	{
 		if (*s == c)
-			return (s);
+			return ((char *)s);
 		s++;
 	}
-	if (c == 0 && s == 0)
-		return (s);
+	if (c == 0 && *s == 0)
+		return ((char *)s);
 	return (0);
 }

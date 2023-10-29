@@ -6,13 +6,15 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:49:11 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 21:29:28 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 17:40:59 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+#include "libft.h"
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)
@@ -25,5 +27,5 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	}
 	if (i == n)
 		return (0);
-	return (*s1 - *s2);
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }

@@ -6,15 +6,17 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 20:54:58 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 21:23:44 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 17:42:46 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *s, int c, int n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	find_c;
 	unsigned char	*str;
-	int				i;
+	size_t			i;
 
 	i = 0;
 	find_c = (unsigned char)c;

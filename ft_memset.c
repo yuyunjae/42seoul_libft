@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:47:09 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/29 14:46:33 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 15:59:00 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_memset(void *b, int c, size_t len)
 
 	s = (unsigned char *)b;
 	i = 0;
-	if (!s)
-		return (0);
 	while (i < len)
 	{
 		s[i] = (unsigned char)c;

@@ -6,9 +6,11 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:55:22 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 22:25:12 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 17:46:21 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isspace(char c)
 {
@@ -21,9 +23,11 @@ int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
+	int	ans;
 
 	sign = 1;
 	i = 0;
+	ans = 0;
 	while (str[i] && ft_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -32,5 +36,10 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	//숫자ㅣ 변환
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		ans = ans * 10 + str[i] - '0';
+		i++;
+	}
+	return (sign * ans);
 }

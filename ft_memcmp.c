@@ -6,20 +6,22 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:22:02 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/06 21:30:01 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 17:59:18 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_memcmp(const void *s1, const void *s2, int n)
+#include "libft.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;
-	int				i;
+	size_t			i;
 
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
 	i = 0;
-	while (*str1 && *str2 && *str1 == *str2 && i < n)
+	while (*str1 == *str2 && i < n)
 	{
 		str1++;
 		str2++;
