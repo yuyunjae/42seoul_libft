@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:52:59 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/29 17:55:06 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 18:44:22 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_strlcat(char *dest, const char *src, size_t size)
 		return (s_len + size);
 	else
 	{
-		while (src != 0 && (d_len + i + 1 < size))
+		while (src[i] != 0 && (d_len + i + 1 < size))
 		{
 			dest[d_len + i] = src[i];
 			i++;

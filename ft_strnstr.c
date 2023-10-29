@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:30:23 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/29 17:56:22 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 18:11:41 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *str1, const char *str2, size_t n)
 	i = 0;
 	s1 = (char *)str1;
 	s2 = (char *)str2;
-	if (s2 == 0)
+	if (*s2 == 0)
 		return (s1);
 	while (s1[i] && i < n)
 	{

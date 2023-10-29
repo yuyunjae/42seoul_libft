@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:22:02 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/29 17:59:18 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/10/29 18:51:08 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	str1 = (unsigned char *)s1;
 	str2 = (unsigned char *)s2;
 	i = 0;
-	while (*str1 == *str2 && i < n)
+	if (n == 0)
+		return (0);
+	while (*str1 == *str2 && i + 1 < n)
 	{
 		str1++;
 		str2++;
 		i++;
 	}
-	if (i == n)
-		return (0);
-	else
-		return (*str1 - *str2);
+	return (*str1 - *str2);
 }
