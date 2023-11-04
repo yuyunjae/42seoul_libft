@@ -6,80 +6,58 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:17:24 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 17:06:35 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/04 19:30:11 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	ft_fine_all(char const *s, char c)
+int	ft_find_all(char *s, char c, int *length)
 {
-	int		length;
 	int		i;
 	int		count;
 	char	before_c;
 
-	length = ft_strlen(s);
-	i = 0;
+	*length = ft_strlen(s);
+	i = -1;
 	count = 0;
-	before_c = c;
-	while (i < length)
+	before_c = 0;
+	while (++i < *length)
 	{
-		if (s[i] == c && before_c != c)
-		{
+		if (s[i] == c)
+			s[i] = 0;
+		if (s[i] == 0 && before_c != 0)
 			count++;
-		}
 		before_c = s[i];
-		i++;
 	}
-	if (before_c != c)
+	if (before_c != 0)
 		count++;
 	return (count);
 }
 
-// int	ft_split_last(char *str, int *check, char const *s)
-// {
-// 	// if (*check > 0)
-// 	// {
-// 	// 	str = (char *)malloc(*check + 1);
-// 	// 	if (!str)
-// 	// 		return (0);
-// 	// 	ft_strlcpy(str, s - *check, *check + 1);
-// 	// 	ans[i] = str;
-// 	// }
-// }
-
-int	ft_split_all(char const *s, char **ans, int *check, char c)
+int	ft_split_all(char *str, char **ans, int length, int i)
 {
-	int		i;
-	char	*str;
+	char	*s;
+	int		check;
+	int		index;
 
-	i = 0;
-	while (*s)
+	check = 0;
+	index = 0;
+	while (++i <= length)
 	{
-		if (*s == c && *check > 0)
+		if (str[i] == 0)
 		{
-			str = (char *)malloc(*check + 1);
-			if (!str)
-				return (0);
-			ft_strlcpy(str, s - *check, *check + 1);
-			ans[i] = str;
-			i++;
-			*check = -1;
+			if (check > 0)
+			{
+				s = ft_substr(str + i - check, 0, check);
+				if (!s)
+					return (0);
+				ans[index++] = s;
+			}
+			check = -1;
 		}
-		else if (*s == c)
-			*check = -1;
-		s++;
-		(*check) += 1;
-	}
-	if (*check > 0)
-	{
-		str = (char *)malloc(*check + 1);
-		if (!str)
-			return (0);
-		ft_strlcpy(str, s - *check, *check + 1);
-		ans[i] = str;
+		check++;
 	}
 	return (1);
 }
@@ -87,37 +65,26 @@ int	ft_split_all(char const *s, char **ans, int *check, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**ans;
-	int		check;
+	char	*str;
 	int		count;
+	int		length;
 
-	count = ft_fine_all(s, c);
+	str = ft_strdup(s);
+	if (!str)
+		return (0);
+	count = ft_find_all(str, c, &length);
 	ans = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!ans)
+	{
+		free(str);
 		return (0);
-	check = 0;
-	if (!ft_split_all(s, ans, &check, c))
+	}
+	if (!ft_split_all(str, ans, length, -1))
+	{
+		free(str);
 		return (0);
+	}
 	ans[count] = 0;
+	free(str);
 	return (ans);
 }
-
-
-//오류 고치고 줄 수 줄이기.
-
-// int main()
-// {
-// 	char	**tabstr;
-// 	int		i;
-
-// 	i = 0;
-// 	if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
-//         printf("NULL");
-//     else
-//     {
-//         while (tabstr[i] != 0)
-//         {
-//             printf("%s\n",tabstr[i]);
-//             i++;
-//         }
-//     }
-// }
