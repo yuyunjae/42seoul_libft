@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 20:54:58 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 19:40:39 by yuyu             ###   ########.fr       */
+/*   Created: 2023/11/04 20:33:28 by yuyu              #+#    #+#             */
+/*   Updated: 2023/11/04 21:42:05 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned char	find_c;
-	unsigned char	*str;
-	size_t			i;
+	t_list	*node;
 
-	i = 0;
-	find_c = (unsigned char)c;
-	str = (unsigned char *)s;
-	while (i < n)
+	if (!(*lst) || !del)
+		return ;
+	while ((*lst)->next)
 	{
-		if (str[i] == find_c)
-			return (str + i);
-		i++;
+		node = (*lst);
+		del(node->content);
+		*lst = (*lst)->next;
+		free(node);
 	}
-	return (0);
+	node = *lst;
+	del(node->content);
+	*lst = 0;
+	free(node);
 }
