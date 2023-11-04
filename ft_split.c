@@ -6,12 +6,11 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:17:24 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 19:30:11 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/04 19:33:13 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_find_all(char *s, char c, int *length)
 {
