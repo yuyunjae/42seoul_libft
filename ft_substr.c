@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 18:05:17 by yuyu              #+#    #+#             */
-/*   Updated: 2023/10/29 23:10:48 by yuyu             ###   ########.fr       */
+/*   Created: 2023/10/29 21:13:31 by yuyu              #+#    #+#             */
+/*   Updated: 2023/10/31 21:41:11 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned char	*uc_dst;
-	unsigned char	*uc_src;
+	char	*str;
+	size_t	i;
 
-	uc_dst = (unsigned char *)dst;
-	uc_src = (unsigned char *)src;
-	i = 0;
-	while (i < n && (uc_dst || uc_src))
+	i = ft_strlen(s);
+	if (i <= start || len <= 0)
 	{
-		uc_dst[i] = uc_src[i];
-		i++;
+		str = ft_calloc(1, 1);
+		return (str);
 	}
-	return (dst);
+	i = ft_strlen(s + start);
+	if (len > i)
+		len = i;
+	str = ft_calloc(len + 1, 1);
+	if (!str)
+		return (0);
+	ft_strlcpy(str, s + start, len + 1);
+	return (str);
 }
