@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:48:38 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 22:40:20 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 14:24:27 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,25 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*head;
 	t_list	*dummy1;
 	t_list	*dummy2;
+	void	*ptr;
 
-	if (!lst || !(*f) || !del)
+	if (!lst || !f || !(*f) || !del)
 		return (0);
-	dummy1 = (t_list *)malloc(sizeof(t_list));
-	if (!dummy1)
-		return (0);
-	head = dummy1;
+	head = 0;
 	dummy2 = lst;
 	while (dummy2)
 	{
-		dummy1->next = ft_lstnew(f(dummy2->content));
-		if (!dummy1->next)
+		ptr = f(dummy2->content);
+		dummy1 = ft_lstnew(ptr);
+		if (!dummy1 || !ptr)
 		{
+			if (!ptr)
+				del(ptr);
 			ft_lstclear(&head, del);
 			return (0);
 		}
 		dummy2 = dummy2->next;
-		dummy1 = dummy1->next;
+		ft_lstadd_back(&head, dummy1);
 	}
-	dummy1 = head->next;
-	free(head);
-	return (dummy1);
+	return (head);
 }

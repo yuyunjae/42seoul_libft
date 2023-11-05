@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:21:29 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 20:25:24 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 13:49:32 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*node;
 
-	if (!new)
+	if (!new || !lst)
 		return ;
 	if (!(*lst))
 	{

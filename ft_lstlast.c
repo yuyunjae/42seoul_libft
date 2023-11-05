@@ -6,13 +6,13 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:14:24 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 20:21:11 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 13:51:54 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list	*lst)
+t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*node;
 

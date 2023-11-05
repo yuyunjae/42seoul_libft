@@ -6,12 +6,11 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 21:38:32 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 17:52:42 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 15:39:03 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_is_in(char const *set, char c)
 {

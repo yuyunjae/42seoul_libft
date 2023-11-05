@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:17:24 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 19:33:13 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 15:15:42 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@ int	ft_find_all(char *s, char c, int *length)
 	return (count);
 }
 
+void	free_all(char **ans, char index)
+{
+	int	i;
+
+	i = 0;
+	while (i < index)
+	{
+		free(ans[i]);
+		i++;
+	}
+}
+
 int	ft_split_all(char *str, char **ans, int length, int i)
 {
 	char	*s;
@@ -51,7 +63,10 @@ int	ft_split_all(char *str, char **ans, int length, int i)
 			{
 				s = ft_substr(str + i - check, 0, check);
 				if (!s)
+				{
+					free_all(ans, index);
 					return (0);
+				}
 				ans[index++] = s;
 			}
 			check = -1;
@@ -81,6 +96,7 @@ char	**ft_split(char const *s, char c)
 	if (!ft_split_all(str, ans, length, -1))
 	{
 		free(str);
+		free(ans);
 		return (0);
 	}
 	ans[count] = 0;
