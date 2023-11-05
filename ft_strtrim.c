@@ -6,13 +6,13 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 21:38:32 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/05 15:39:03 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 19:16:03 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_is_in(char const *set, char c)
+static int	ft_is_in(char const *set, char c)
 {
 	int	set_len;
 	int	i;

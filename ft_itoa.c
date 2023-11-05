@@ -6,13 +6,13 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 22:42:28 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/04 17:06:09 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 19:14:49 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_back_strdup(char *s, int i, int sign)
+static char	*ft_back_strdup(char *s, int i, int sign)
 {
 	char	*str;
 	int		index;

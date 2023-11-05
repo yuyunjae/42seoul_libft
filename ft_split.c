@@ -6,13 +6,13 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 21:17:24 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/05 15:15:42 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 19:15:38 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_find_all(char *s, char c, int *length)
+static int	ft_find_all(char *s, char c, int *length)
 {
 	int		i;
 	int		count;
@@ -35,7 +35,7 @@ int	ft_find_all(char *s, char c, int *length)
 	return (count);
 }
 
-void	free_all(char **ans, char index)
+static void	free_all(char **ans, char index)
 {
 	int	i;
 
@@ -47,7 +47,7 @@ void	free_all(char **ans, char index)
 	}
 }
 
-int	ft_split_all(char *str, char **ans, int length, int i)
+static int	ft_split_all(char *str, char **ans, int length, int i)
 {
 	char	*s;
 	int		check;
