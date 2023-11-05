@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 20:48:38 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/05 14:24:27 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/05 22:02:43 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		dummy1 = ft_lstnew(ptr);
 		if (!dummy1 || !ptr)
 		{
-			if (!ptr)
+			if (ptr)
 				del(ptr);
+			free(dummy1);
 			ft_lstclear(&head, del);
 			return (0);
 		}
