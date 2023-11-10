@@ -6,7 +6,7 @@
 /*   By: yuyu <yuyu@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:55:22 by yuyu              #+#    #+#             */
-/*   Updated: 2023/11/05 19:20:24 by yuyu             ###   ########.fr       */
+/*   Updated: 2023/11/10 18:35:54 by yuyu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,32 @@ static int	ft_isspace(char c)
 	if (c == ' ' || (c >= 9 && c <= 13))
 		return (1);
 	return (0);
+}
+
+static unsigned long	ft_strtol(char *str, int sign)
+{
+	unsigned long	i;
+	unsigned long	ans;
+	unsigned long	before;
+
+	i = 0;
+	ans = 0;
+	before = 0;
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		ans = ans * 10 + str[i] - '0';
+		if (before > ans && sign == -1)
+			return (0);
+		else if (before > ans && sign == 1)
+			return (-1);
+		else if (ans >= (long)9223372036854775807 && sign == 1)
+			return (-1);
+		else if (ans > (long)9223372036854775807 && sign == -1)
+			return (0);
+		before = ans;
+		i++;
+	}
+	return (sign * ans);
 }
 
 int	ft_atoi(const char *str)
@@ -36,10 +62,5 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (str[i] && ft_isdigit(str[i]))
-	{
-		ans = ans * 10 + str[i] - '0';
-		i++;
-	}
-	return (sign * ans);
+	return ((int)ft_strtol((char *)(str + i), sign));
 }
